@@ -1,17 +1,14 @@
 backend:
-  name: github
-  repo: Abhinash-Dhar/yours-science-hub
-  branch: main
-
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
-
+  name: git-gateway
+  branch: main # <--- CHECK THIS: Should be 'main' or 'master'
+media_folder: "static/uploads" # Adjust this path if your site uses a different structure
+public_folder: "/uploads" # This path is used in HTML image tags
 collections:
-  - name: "notes"
-    label: "Notes"
-    folder: "content/notes"
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts" # A common content directory for many static sites
     create: true
-    slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
